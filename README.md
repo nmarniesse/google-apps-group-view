@@ -2,9 +2,13 @@
 
 Web interface to visualize groups and members from a Google Suite account
 
+## Requirement
+
+PHP 5.4.0 or higher, and [composer](https://getcomposer.org/)
+
 ## Install
 
-Install all dependencies with [composer](https://getcomposer.org/)
+Install all dependencies with composer:
 
 ```
 $ composer install
