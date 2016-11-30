@@ -1,0 +1,5 @@
+app:
+  # use cache to limit calls to google api. Use 'false' or a value in seconds
+  cache: false
+  # Restrict domain for email group. example: "@test.com"
+  restrict-domain: 
