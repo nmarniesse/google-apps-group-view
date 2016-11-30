@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Google Apps group and members
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Google Apps groups</h1>
+</div>
+<div class="container">
+    <div class="row">
+        {% for group in groups %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ group.getEmail() }}</h1>
+                </div>
+                <ul class="list-group">
+                    {% for member in group.getMembers() %}
+                        <li class="
+                            list-group-item
+                            {% if member.getStatus() != "ACTIVE" %}list-group-item-danger{% endif %}
+                        ">
+                            {{ member.getEmail() }}
+                            {% if member.getRole() == "OWNER" %}<span class="label label-success">owner</span>{% endif %}
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

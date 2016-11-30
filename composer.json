@@ -1,0 +1,22 @@
+{
+    "name": "nmarniesse/google-group-view",
+    "description": "Display Google Apps groups and members",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicolas Marniesse",
+            "email": "nmarniesse@naoned.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "GoogleGroupView\\": "src/GoogleGroupView",
+            "GoogleApiClient\\": "src/GoogleApiClient"
+        }
+    },
+    "require": {
+        "silex/silex": "~2.0",
+        "google/apiclient": "^2.0",
+        "twig/twig": "1.5"
+    }
+}

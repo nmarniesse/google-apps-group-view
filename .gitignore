@@ -1,0 +1,4 @@
+vendor/
+.credentials/
+client_secret.json
+web/php_errors.log
