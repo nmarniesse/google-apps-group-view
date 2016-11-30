@@ -24,7 +24,7 @@ $scopes              = implode(' ', [
     Google_Service_Directory::ADMIN_DIRECTORY_GROUP_READONLY,
     Google_Service_Directory::ADMIN_DIRECTORY_GROUP_MEMBER_READONLY,
 ]);
-$clientSecretJsonFile = __DIR__ . '/../.credentials/client_secret.json';
+$clientSecretJsonFile = __DIR__ . '/../client_secret.json';
 $credentialsPath      = __DIR__ . '/../.credentials/credentials.json';
 
 
@@ -38,7 +38,7 @@ $app['group_service'] = $app->factory(function($app) {
 // Routing
 $app->get('/', function() use ($app) {
     $action = new GetGroupsAndMembers($app);
-    return $action('@naoned.fr');
+    return $action();
 });
 
 
