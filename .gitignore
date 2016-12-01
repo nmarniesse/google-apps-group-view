@@ -1,6 +1,6 @@
 vendor/
+cache/
 .credentials/
 client_secret.json
 web/*.log
-web/*.txt
 config/parameters.yml

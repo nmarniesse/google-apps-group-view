@@ -6,6 +6,7 @@ use GoogleApiClient\Client\GoogleClientFactory;
 use GoogleGroupView\Action\GetGroupsAndMembers;
 use GoogleGroupView\Domain\Service\GroupService;
 use GoogleGroupView\Config\Config;
+use GoogleGroupView\Cache\CacheAction;
 
 $app = new Silex\Application();
 
@@ -33,6 +34,12 @@ $scopes              = implode(' ', [
 $clientSecretJsonFile = __DIR__ . '/../client_secret.json';
 $credentialsPath      = __DIR__ . '/../.credentials/credentials.json';
 
+// Cache
+$app['cache_folder'] = __DIR__ . '/../cache/';
+if (!is_dir($app['cache_folder'])) {
+    mkdir($app['cache_folder']);
+}
+
 // Services
 $app['app_config'] = function () use ($configFile) {
     return new Config($configFile);
@@ -46,7 +53,7 @@ $app['group_service'] = $app->factory(function($app) {
 
 // Routing
 $app->get('/', function() use ($app) {
-    $action = new GetGroupsAndMembers($app);
+    $action = new CacheAction(new GetGroupsAndMembers($app));
     return $action($app['app_config']->config['app']['restrict-domain']);
 });
 
